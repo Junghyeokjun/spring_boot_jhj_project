@@ -16,8 +16,15 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	BoardMapper boardMapper;
 	
+	@Override
 	public List<BoardVO> getList(){
 		log.info("getList()..");
 		return boardMapper.getList();
+	};
+	
+	@Override
+	public BoardVO get(int bno){
+		log.info("get()..");
+		return boardMapper.read(bno);
 	};
 }

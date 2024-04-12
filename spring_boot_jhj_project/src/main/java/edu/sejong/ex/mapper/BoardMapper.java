@@ -9,4 +9,5 @@ import edu.sejong.ex.vo.BoardVO;
 @Mapper
 public interface BoardMapper {
 	List<BoardVO> getList();
+	BoardVO read(int bno);
 }

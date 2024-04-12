@@ -24,4 +24,11 @@ public class BoardController {
 		model.addAttribute("boards", boardService.getList());
 		return "/board/list";
 	}
+	
+	@GetMapping("/content_view")
+	public String contentView(Model model,int bid) {
+		log.info("contentView()..");
+		model.addAttribute("content", boardService.get(bid));
+		return "/board/content_view";
+	}
 }
