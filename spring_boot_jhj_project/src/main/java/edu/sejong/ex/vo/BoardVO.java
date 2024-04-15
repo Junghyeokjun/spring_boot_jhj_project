@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 /*BID      NOT NULL NUMBER(4)      
 BNAME             VARCHAR2(20)   
@@ -21,7 +22,7 @@ BINDENT           NUMBER(4)*/
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-
+@ToString
 public class BoardVO {
 	private int bid;
 	private String bname;
