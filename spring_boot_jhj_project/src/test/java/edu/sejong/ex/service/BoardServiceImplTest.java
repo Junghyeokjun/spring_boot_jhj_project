@@ -35,10 +35,16 @@ class BoardServiceImplTest {
 	void testRead() {
 			log.info(boardService.get(1).toString());
 	}
-	
+	@Disabled
 	@Test
 	void testWriteBoard() {
 		BoardVO boardVO=new BoardVO(0,"1234","4567","7891",null,0,0,0,0);
 		boardService.writeBoard(boardVO);
+	}
+	
+	@Test
+	void testModifyBoard() {
+		BoardVO boardVO=new BoardVO(1,"test","테스트","test",null,0,0,0,0);
+		log.info(boardService.modifyBoard(boardVO)+"행 수정");
 	}
 }

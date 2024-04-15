@@ -53,4 +53,11 @@ public class BoardController {
 		log.info(boardService.writeBoard(boardVO)+"행 삽입");
 		return "redirect:/board/list";
 	}
+	
+	@PostMapping("/modify")
+	public String modify(BoardVO boardVO) {
+		log.info("modify()..");
+		log.info(boardService.modifyBoard(boardVO)+"행 수정");
+		return "redirect:/board/list";
+	}
 }

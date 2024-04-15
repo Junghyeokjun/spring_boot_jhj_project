@@ -38,5 +38,11 @@ public class BoardServiceImpl implements BoardService{
 	public int writeBoard(BoardVO boardVO) {
 		log.info("writeBoard()..");
 		return boardMapper.insertBoard(boardVO);
+	}
+
+	@Override
+	public int modifyBoard(BoardVO boardVO) {
+		log.info("modifyBoard()..");
+		return boardMapper.updateBoard(boardVO);
 	};
 }
