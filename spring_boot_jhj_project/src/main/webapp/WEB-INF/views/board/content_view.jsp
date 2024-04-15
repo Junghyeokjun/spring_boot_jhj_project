@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="update.do" method="post">
+	<form action="${pageContext.request.contextPath}/board/modify" method="post">
 		<input type="hidden" name="bid" value="${content.bid }">
 		<table width="500" border="">
 			<tr>
@@ -32,8 +32,8 @@
 				<td colspan="2">
 					<input type="submit" value="수정">
 					&nbsp;<a href="${pageContext.request.contextPath}/board/list">목록</a>		
-					&nbsp;<a href="reply_view.do?bid=${content.bid}">답글</a>	
-					&nbsp;<a href="delete.do?bid=${content.bid}">삭제</a>		
+					&nbsp;<a href="${pageContext.request.contextPath}/board/reply_view?bid=${content.bid}">답글</a>	
+					&nbsp;<a href="${pageContext.request.contextPath}/board/delete?bid=${content.bid}">삭제</a>		
 						
 				</td>
 			</tr>

@@ -16,4 +16,9 @@
 		]]>
 	</select>
 	
+	<delete id="delete">
+		<![CDATA[
+			DELETE FROM mvc_board WHERE bid=#{bid}
+		]]>
+	</delete>
 </mapper>

@@ -31,4 +31,11 @@ public class BoardController {
 		model.addAttribute("content", boardService.get(bid));
 		return "/board/content_view";
 	}
+	
+	@GetMapping("/delete")
+	public String delete(int bid) {
+		log.info("delete()..");
+		log.info(boardService.remove(bid)+"행 삭제");
+		return "redirect:/board/list";
+	}
 }

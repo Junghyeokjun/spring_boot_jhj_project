@@ -10,4 +10,5 @@ import edu.sejong.ex.vo.BoardVO;
 public interface BoardMapper {
 	List<BoardVO> getList();
 	BoardVO read(int bno);
+	int delete(int bid);
 }
