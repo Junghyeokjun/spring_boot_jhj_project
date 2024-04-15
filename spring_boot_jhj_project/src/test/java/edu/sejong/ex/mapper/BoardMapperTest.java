@@ -30,9 +30,15 @@ class BoardMapperTest {
 			log.info("확인==================="+boardVO);
 		}
 	}
-	
+	@Disabled
 	@Test
 	void testRead() {
 		log.info(boardMapper.read(1).toString());
+	}
+	
+	@Test
+	void testInsertBoard() {
+		BoardVO boardVO=new BoardVO(0,"1234","4567","7891",null,0,0,0,0);
+		log.info(boardMapper.insertBoard(boardVO)+"행 삽입");
 	}
 }

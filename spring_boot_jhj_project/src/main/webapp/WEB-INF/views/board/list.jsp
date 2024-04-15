@@ -33,6 +33,5 @@
 		</tr>
 	</table>
 	<br>
-	<a href="${pageContext.request.contextPath}/emp/insert">사원 	입력</a>
 </body>
 </html>

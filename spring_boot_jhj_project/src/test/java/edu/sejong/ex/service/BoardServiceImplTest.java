@@ -30,9 +30,15 @@ class BoardServiceImplTest {
 			log.info(boardVO.toString());
 		}
 	}
-	
+	@Disabled
 	@Test
 	void testRead() {
 			log.info(boardService.get(1).toString());
+	}
+	
+	@Test
+	void testWriteBoard() {
+		BoardVO boardVO=new BoardVO(0,"1234","4567","7891",null,0,0,0,0);
+		boardService.writeBoard(boardVO);
 	}
 }
