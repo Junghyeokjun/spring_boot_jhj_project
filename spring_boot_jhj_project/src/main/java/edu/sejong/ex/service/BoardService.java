@@ -11,4 +11,5 @@ public interface BoardService {
 	int writeBoard(BoardVO boardVO);
 	int modifyBoard(BoardVO boardVO);
 	void writeReply(BoardVO boardVO);
+	void addHit(BoardVO boardVO);
 }

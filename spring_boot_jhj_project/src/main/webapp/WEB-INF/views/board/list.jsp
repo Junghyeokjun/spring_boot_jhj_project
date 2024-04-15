@@ -22,7 +22,7 @@
 				<td>${board.bname}</td>
 				<td>
 					<c:forEach begin="1" end="${board.bindent}">[Re]</c:forEach>
-					<a href="${pageContext.request.contextPath}/board/content_view?bid=${board.bid}">${board.btitle}</a>
+					<a href="${pageContext.request.contextPath}/board/hit?bid=${board.bid}">${board.btitle}</a>
 				</td>
 				<td>${board.bdate}</td>
 				<td>${board.bhit}</td>

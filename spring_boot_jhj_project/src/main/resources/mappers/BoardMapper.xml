@@ -45,4 +45,11 @@
 			INSERT INTO mvc_board VALUES (MVC_BOARD_SEQ.nextval, #{bname},#{btitle},#{bcontent},sysdate,0,#{bgroup},#{bstep}+1,#{bindent}+1)
 		]]>
 	</insert>
+	
+	<update id="upHit">
+		<![CDATA[
+			UPDATE mvc_board SET bhit=bhit+1 WHERE bid=#{bid} 
+		]]>
+	</update>
+	
 </mapper>

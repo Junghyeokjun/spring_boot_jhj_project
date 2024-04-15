@@ -15,4 +15,5 @@ public interface BoardMapper {
 	int updateBoard(BoardVO boardVO);
 	void updateShape(BoardVO boardVO);
 	void insertReply(BoardVO boardVO);
+	void upHit(BoardVO boardVO);
 }

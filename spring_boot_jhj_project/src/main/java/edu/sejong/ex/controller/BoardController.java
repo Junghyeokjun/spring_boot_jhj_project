@@ -75,4 +75,11 @@ public class BoardController {
 		boardService.writeReply(boardVO);
 		return "redirect:/board/list";
 	}
+	
+	@GetMapping("/hit")
+	public String hit(BoardVO boardVO) {
+		log.info("hit()..");
+		boardService.addHit(boardVO);
+		return "redirect:/board/content_view?bid="+boardVO.getBid();
+	}
 }
