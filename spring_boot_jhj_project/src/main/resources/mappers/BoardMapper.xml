@@ -33,4 +33,16 @@
 			UPDATE mvc_board SET bname = #{bname},btitle = #{btitle},bcontent = #{bcontent} WHERE bid=#{bid}
 		]]>
 	</update>
+	
+	<update id="updateShape">
+		<![CDATA[
+			UPDATE mvc_board SET bstep=bstep+1 WHERE bstep>#{bstep} and bgroup= #{bgroup}
+		]]>
+	</update>
+	
+	<insert id="insertReply">
+		<![CDATA[
+			INSERT INTO mvc_board VALUES (MVC_BOARD_SEQ.nextval, #{bname},#{btitle},#{bcontent},sysdate,0,#{bgroup},#{bstep}+1,#{bindent}+1)
+		]]>
+	</insert>
 </mapper>
