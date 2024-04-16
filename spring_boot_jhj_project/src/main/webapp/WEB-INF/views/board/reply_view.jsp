@@ -37,7 +37,7 @@
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="답변">
-				&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/board/list">목록보기</a></td>
+				&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/board/list2">목록보기</a></td>
 			</tr>
 		</form>
 	</table>

@@ -26,7 +26,7 @@ public class BoardController {
 		log.info("list()..");
 		
 		model.addAttribute("boards", boardService.getList());
-		return "/board/list";
+		return "redirect:/board/list2";
 	}
 	
 	@GetMapping("/list2")
@@ -53,7 +53,7 @@ public class BoardController {
 	public String delete(int bid) {
 		log.info("delete()..");
 		log.info(boardService.remove(bid)+"행 삭제");
-		return "redirect:/board/list";
+		return "redirect:/board/list2";
 	}
 	
 	@GetMapping("/write_view")
@@ -66,14 +66,14 @@ public class BoardController {
 	public String write(BoardVO boardVO) {
 		log.info("write()..");
 		log.info(boardService.writeBoard(boardVO)+"행 삽입");
-		return "redirect:/board/list";
+		return "redirect:/board/list2";
 	}
 	
 	@PostMapping("/modify")
 	public String modify(BoardVO boardVO) {
 		log.info("modify()..");
 		log.info(boardService.modifyBoard(boardVO)+"행 수정");
-		return "redirect:/board/list";
+		return "redirect:/board/list2";
 	}
 	
 	@GetMapping("/reply_view")
@@ -88,7 +88,7 @@ public class BoardController {
 	public String reply(BoardVO boardVO) {
 		log.info("reply()..");
 		boardService.writeReply(boardVO);
-		return "redirect:/board/list";
+		return "redirect:/board/list2";
 	}
 	
 	@GetMapping("/hit")

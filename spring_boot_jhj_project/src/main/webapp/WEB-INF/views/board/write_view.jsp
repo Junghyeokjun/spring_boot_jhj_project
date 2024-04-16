@@ -24,7 +24,7 @@
 				<td><textarea name="bcontent" rows="10"></textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="입력">&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/board/list">목록보기</a></td>
+				<td colspan="2"><input type="submit" value="입력">&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/board/list2">목록보기</a></td>
 			</tr>
 		</form>
 	</table>

@@ -31,7 +31,7 @@
 			<tr>
 				<td colspan="2">
 					<input type="submit" value="수정">
-					&nbsp;<a href="${pageContext.request.contextPath}/board/list">목록</a>		
+					&nbsp;<a href="${pageContext.request.contextPath}/board/list2">목록</a>		
 					&nbsp;<a href="${pageContext.request.contextPath}/board/reply_view?bid=${content.bid}">답글</a>	
 					&nbsp;<a href="${pageContext.request.contextPath}/board/delete?bid=${content.bid}">삭제</a>		
 						
