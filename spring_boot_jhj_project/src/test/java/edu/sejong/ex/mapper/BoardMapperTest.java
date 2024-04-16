@@ -41,6 +41,7 @@ class BoardMapperTest {
 		BoardVO boardVO=new BoardVO(0,"1234","4567","7891",null,0,0,0,0);
 		log.info(boardMapper.insertBoard(boardVO)+"행 삽입");
 	}
+	@Disabled
 	@Test
 	void testDelete() {
 		log.info(boardMapper.delete(68)+"행 삭제");

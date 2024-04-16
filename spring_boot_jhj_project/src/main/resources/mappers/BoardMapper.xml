@@ -46,10 +46,26 @@
 		]]>
 	</insert>
 	
-	<update id="upHit">
+	<update id="upHit" >
 		<![CDATA[
 			UPDATE mvc_board SET bhit=bhit+1 WHERE bid=#{bid} 
 		]]>
 	</update>
+	
+	<select id="getListWithPaging" resultType="BoardVO">
+		<![CDATA[
+			select * from (
+			SELECT ROWNUM rm, a.* FROM (
+			SELECT * FROM mvc_board2 order by bgroup desc, bstep asc) a 
+			where ROWNUM<=#{pageNum}*#{amount})
+			WHERE rm>(#{pageNum}-1)*#{amount}
+		]]>
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+		<![CDATA[
+			SELECT count(*) FROM mvc_board
+		]]>
+	</select>
 	
 </mapper>
