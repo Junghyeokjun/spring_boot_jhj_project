@@ -64,7 +64,7 @@
 	
 	<select id="getTotalCount" resultType="int">
 		<![CDATA[
-			SELECT count(*) FROM mvc_board
+			SELECT count(*) FROM mvc_board2
 		]]>
 	</select>
 	
