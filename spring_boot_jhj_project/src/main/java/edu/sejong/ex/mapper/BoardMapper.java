@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Select;
 
 import edu.sejong.ex.page.Criteria;
 import edu.sejong.ex.vo.BoardVO;
+import edu.sejong.ex.vo.DeptVO;
+import edu.sejong.ex.vo.EmpVO;
 
 @Mapper
 public interface BoardMapper {
@@ -27,4 +29,8 @@ public interface BoardMapper {
 	//페이징 관련
 	List<BoardVO> getListWithPaging(Criteria cri);
 	int getTotalCount();
+	
+	List<DeptVO> getJoinDept();
+	List<EmpVO> getJoinEmp();
+
 }

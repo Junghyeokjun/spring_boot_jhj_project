@@ -67,5 +67,14 @@
 			SELECT count(*) FROM mvc_board2
 		]]>
 	</select>
-	
+		<select id="getJoinEmp" resultType="EmpVO" >
+		<![CDATA[
+			select e.empno, e.ename ,e.sal, e.deptno,d.dname from dept d, emp e WHERE d.deptno=e.deptno
+		]]>
+	</select>
+	<select id="getJoinDept" resultType="DeptVO" >
+		<![CDATA[
+			select e.empno, e.ename ,e.sal, e.deptno,d.dname from dept d, emp e WHERE d.deptno=e.deptno
+		]]>
+	</select>
 </mapper>

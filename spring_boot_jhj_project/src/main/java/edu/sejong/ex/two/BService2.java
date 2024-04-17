@@ -32,4 +32,5 @@ public class BService2 {
 		return sqlSession.selectOne("board.getTotal");
 		
 	}
+	
 }

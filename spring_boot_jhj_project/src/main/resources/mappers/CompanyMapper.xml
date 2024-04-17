@@ -2,13 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         
-<mapper namespace="edu.sejong.ex.one.IBDao">
+<mapper namespace="edu.sejong.ex.mapper.CompanyMapper">
 
-	<select id="listDao" resultType="BoardVO">
+	<select id="getEmpDept" resultType="EmpDeptVO">
 		<![CDATA[
-			select * from mvc_board2 order by bgroup desc, bstep asc
+			select * from emp,dept
 		]]>
 	</select>
-		
 
 </mapper>

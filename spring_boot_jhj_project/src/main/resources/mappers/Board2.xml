@@ -24,6 +24,7 @@
 		<![CDATA[
 			select count(*) from mvc_board2
 		]]>
-	</select>
+	</select>	
+
 	
 </mapper>
