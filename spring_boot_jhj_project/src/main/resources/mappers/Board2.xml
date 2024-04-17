@@ -10,4 +10,20 @@
 		]]>
 	</select>
 	
+	<select id="selectBoardPagingList" resultType="BoardVO">
+		<![CDATA[
+		select * from(
+			select rownum rm,a.* from(
+				select * from mvc_board2 order by bgroup desc, bstep asc
+			) a where rownum<=#{pageNum}*#{amount}	
+		) where rm>(#{pageNum}-1)*#{amount}
+		]]>
+	</select>	
+	
+	<select id="getTotal" resultType="int">
+		<![CDATA[
+			select count(*) from mvc_board2
+		]]>
+	</select>
+	
 </mapper>

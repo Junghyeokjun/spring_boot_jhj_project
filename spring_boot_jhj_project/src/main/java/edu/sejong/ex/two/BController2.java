@@ -5,6 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import edu.sejong.ex.page.Criteria;
+import edu.sejong.ex.page.PageVO;
+
 /*
 1. interface는 필요가 없음 
 2. sqlSession에서 제공하는 함수(selectList,selectOne)를 이용함
@@ -24,6 +27,15 @@ public class BController2 {
 		model.addAttribute("boards",bserveice2.selectBoardList());
 		
 		return "/board/list";
+	}	
+	
+	@RequestMapping("/list2")
+	public String list2(Model model,Criteria cri)throws Exception {
+		System.out.println("list2()");
+		model.addAttribute("boards",bserveice2.selectBoardPagingList(cri));
+		model.addAttribute("pageMaker",new PageVO(cri, bserveice2.getTotal()));
+		
+		return "/board/list2";
 	}
 	
 }
