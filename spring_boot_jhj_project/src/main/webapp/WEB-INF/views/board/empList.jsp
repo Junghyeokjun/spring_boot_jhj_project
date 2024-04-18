@@ -28,28 +28,28 @@ crossorigin="anonymous"></script>
 					 	<tr>
 							<td>사원번호</td>
 							<td>이름</td>
-							<td>직급</td>
+							<!-- <td>직급</td>
 							<td>매니저 번호</td>
-							<td>입사일</td>
+							<td>입사일</td> -->
 							<td>월급</td>
-							<td>보너스</td>
+							<!-- <td>보너스</td> -->
 							<td>부서번호</td>
 							<td>부서이름</td>
-							<td>부서위치</td>
+							<!-- <td>부서위치</td> -->
 						</tr>
-						<c:forEach var="dept" items="${depts}">
+						<c:forEach var="dept" items="${deptEmps}">
 							<c:forEach var="emp" items="${dept.empList}">
 								<tr>
 									<td>${emp.empno}</td>
 									<td>${emp.ename}</td>
-									<td>${emp.job}</td>
+									<%-- <td>${emp.job}</td>
 									<td>${emp.mgr}</td>
-									<td>${emp.hiredate}</td>
+									<td>${emp.hiredate}</td> --%>
 									<td>${emp.sal}</td>
-									<td>${emp.comm}</td>
+									<%-- <td>${emp.comm}</td> --%>
 									<td>${dept.deptno}</td>
 									<td>${dept.dname}</td>
-									<td>${dept.loc}</td>
+									<%-- <td>${dept.loc}</td> --%>
 								</tr>
 							</c:forEach>
 						</c:forEach>

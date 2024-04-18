@@ -30,7 +30,7 @@
 	
 	<select id="getDeptEmpList" resultMap="deptEmpMap">
 		<![CDATA[
-			select * from emp,dept where emp.deptno=dept.deptno
+			select * from emp,dept where emp.deptno=dept.deptno order by dept.deptno asc
 		]]>
 	</select>
 	
@@ -47,6 +47,21 @@
 			SELECT emp.*,salgrade.grade
 				FROM emp, salgrade
 			WHERE emp.sal BETWEEN salgrade.losal and salgrade.hisal
+		]]>
+	</select>
+
+	<resultMap type="DeptSalgradeEmpVO" id="deptSalgradeEmpMap">
+		<result property="deptno" column="deptno"/>
+		<result property="dname" column="dname"/>
+		<result property="loc" column="loc"/>
+		<collection property="salgradeEmpList" resultMap="salgradeEmpMap"/>
+	</resultMap>
+	
+	<select id="getDeptSalgradeEmpList" resultMap="deptSalgradeEmpMap">
+		<![CDATA[
+			SELECT *
+				FROM emp, salgrade, dept
+			WHERE (emp.sal BETWEEN salgrade.losal and salgrade.hisal) and emp.deptno=dept.deptno
 		]]>
 	</select>
 

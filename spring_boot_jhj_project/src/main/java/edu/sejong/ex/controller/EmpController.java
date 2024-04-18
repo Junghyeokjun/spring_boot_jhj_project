@@ -21,7 +21,7 @@ public class EmpController {
 	public String list(Model model) {
 		log.info("list()..");
 		
-		model.addAttribute("depts", empService.getDeptEmpVOList());
+		model.addAttribute("deptEmps", empService.getDeptEmpVOList());
 		return "/board/empList";
 	}
 	
@@ -31,6 +31,14 @@ public class EmpController {
 		
 		model.addAttribute("salgerades", empService.getSalgradeEmpVOList());
 		return "/board/salgrade";
+	}	
+	
+	@GetMapping("/deptsalgrade")
+	public String deptsalgrade(Model model) {
+		log.info("deptsalgrade()..");
+		
+		model.addAttribute("deptsalgrade", empService.getDeptSalgradeEmVOList());
+		return "/board/deptsalgrade";
 	}
 	
 }
