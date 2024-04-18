@@ -1,7 +1,5 @@
 package edu.sejong.ex.controller;
 
-import java.util.Random;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,12 +39,5 @@ public class EmpController {
 		
 		model.addAttribute("deptsalgrade", empService.getDeptSalgradeEmVOList());
 		return "/emp/deptsalgrade";
-	}
-	@GetMapping("/index")
-	public String index(Model model) {
-		log.info("index()..");
-		model.addAttribute("rand",new Random());
-		model.addAttribute("DeptSalgradeEmp", empService.getDeptSalgradeEmVOList());
-		return "/emp/index";
 	}
 }

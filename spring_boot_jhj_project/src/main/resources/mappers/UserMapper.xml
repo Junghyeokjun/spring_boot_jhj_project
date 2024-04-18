@@ -20,6 +20,18 @@
 		<![CDATA[
 			select * from users, authorities where users.username=authorities.username and users.username=#{username}
 		]]>
-	</select>		
+	</select>
+	
+	<insert id="insertUser">
+		<![CDATA[
+			insert into users(username,password) VALUES (#{username},#{password})
+		]]>
+	</insert>
+	
+	<insert id="insertAuthorities">
+		<![CDATA[
+			insert into authorities(username,authority) VALUES (#{username},'ROLE_USER')
+		]]>
+	</insert>		
 
 </mapper>

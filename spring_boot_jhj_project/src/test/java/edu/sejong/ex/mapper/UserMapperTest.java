@@ -30,7 +30,7 @@ class UserMapperTest {
 	void testUserMapper() {
 		assertNotNull(userMapper);
 	}
-	
+	@Disabled
 	@Test
 	void testGetUser() {
 		UserVO user=userMapper.getUser("admin");
@@ -38,6 +38,22 @@ class UserMapperTest {
 		for (AuthVO auth : user.getAuthList()) {
 			System.out.println(auth);
 		}
+	}
+	
+	@Test
+	void testInsertUser() {
+		int i=userMapper.insertUser(new UserVO("say","111",null,null));
+		UserVO user=userMapper.getUser("say");
+		System.out.println(user);
+		System.out.println(i);
+	}	
+	
+	@Test
+	void testInsertAuthorities() {
+		userMapper.insertAuthorities(new UserVO("say","111",null,null));
+		UserVO user=userMapper.getUser("say");
+		System.out.println(user);
+
 	}
 
 }
