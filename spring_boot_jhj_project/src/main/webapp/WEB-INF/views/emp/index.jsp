@@ -357,37 +357,38 @@
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Features Items</h2>
-						<c:forEach var="dept" items="${deptEmps}" >
-							<c:forEach var="emp" items="${dept.empList}" >
-								<div class="col-sm-4">
-								<div class="product-image-wrapper">
-									<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="${pageContext.request.contextPath}/images/home/product${rand.nextInt(6)+1}.jpg" alt="" />
-												<h2>$${emp.sal}</h2>
-												<p>${dept.dname} ${emp.ename}</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+						<c:forEach var="dept" items="${DeptSalgradeEmp}" >
+							<c:forEach var="salgrade" items="${dept.salgradeEmpList}" >
+								<c:forEach var="emp" items="${salgrade.empList}" >
+									<div class="col-sm-4">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+													<div class="productinfo text-center">
+														<img src="${pageContext.request.contextPath}/images/home/product${rand.nextInt(6)+1}.jpg" alt="" />
+														<h2>$${emp.sal}</h2>
+														<p>${dept.dname} ${emp.ename}</p>
+														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>${salgrade.grade}등급</a>
+													</div>
+													<div class="product-overlay">
+														<div class="overlay-content">
+															<h2>$${emp.sal}</h2>
+															<p>${dept.dname} ${emp.ename}</p>
+															<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>${salgrade.grade}등급</a>
+														</div>
+													</div>
 											</div>
-											<div class="product-overlay">
-												<div class="overlay-content">
-													<h2>$${emp.sal}</h2>
-													<p>${dept.dname} ${emp.ename}</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
+											<div class="choose">
+												<ul class="nav nav-pills nav-justified">
+													<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+													<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+												</ul>
 											</div>
+										</div>
 									</div>
-									<div class="choose">
-										<ul class="nav nav-pills nav-justified">
-											<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-											<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-								
+									
+								</c:forEach>
 							</c:forEach>
 						</c:forEach>
-
 					</div><!--features_items-->
 					
 					<div class="category-tab"><!--category-tab-->

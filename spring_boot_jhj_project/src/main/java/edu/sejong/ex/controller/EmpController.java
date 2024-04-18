@@ -46,7 +46,7 @@ public class EmpController {
 	public String index(Model model) {
 		log.info("index()..");
 		model.addAttribute("rand",new Random());
-		model.addAttribute("deptEmps", empService.getDeptEmpVOList());
+		model.addAttribute("DeptSalgradeEmp", empService.getDeptSalgradeEmVOList());
 		return "/emp/index";
 	}
 }
