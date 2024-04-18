@@ -12,7 +12,6 @@ import edu.sejong.ex.vo.DeptSalgradeEmpVO;
 import edu.sejong.ex.vo.EmpDeptVO;
 import edu.sejong.ex.vo.EmpVO;
 import edu.sejong.ex.vo.SalgradeEmpVO;
-import edu.sejong.ex.vo.SalgradeVO;
 import lombok.extern.slf4j.Slf4j;
 
 

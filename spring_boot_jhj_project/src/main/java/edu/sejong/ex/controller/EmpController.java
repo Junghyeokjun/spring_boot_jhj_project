@@ -1,5 +1,7 @@
 package edu.sejong.ex.controller;
 
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +24,7 @@ public class EmpController {
 		log.info("list()..");
 		
 		model.addAttribute("deptEmps", empService.getDeptEmpVOList());
-		return "/board/empList";
+		return "/emp/empList";
 	}
 	
 	@GetMapping("/salgrade")
@@ -30,7 +32,7 @@ public class EmpController {
 		log.info("salgrade()..");
 		
 		model.addAttribute("salgerades", empService.getSalgradeEmpVOList());
-		return "/board/salgrade";
+		return "/emp/salgrade";
 	}	
 	
 	@GetMapping("/deptsalgrade")
@@ -38,7 +40,13 @@ public class EmpController {
 		log.info("deptsalgrade()..");
 		
 		model.addAttribute("deptsalgrade", empService.getDeptSalgradeEmVOList());
-		return "/board/deptsalgrade";
+		return "/emp/deptsalgrade";
 	}
-	
+	@GetMapping("/index")
+	public String index(Model model) {
+		log.info("index()..");
+		model.addAttribute("rand",new Random());
+		model.addAttribute("deptEmps", empService.getDeptEmpVOList());
+		return "/emp/index";
+	}
 }
