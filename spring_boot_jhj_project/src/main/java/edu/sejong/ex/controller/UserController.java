@@ -36,6 +36,6 @@ public class UserController {
 	public String signUp(UserVO userVO) {
 		log.info("signUp()..");
 		userService.userSignUp(userVO);
-		return "/index";
+		return "redirect:/index";
 	}
 }
