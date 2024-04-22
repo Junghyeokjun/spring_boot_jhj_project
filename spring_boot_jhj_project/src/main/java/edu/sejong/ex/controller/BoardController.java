@@ -28,7 +28,6 @@ public class BoardController {
 		model.addAttribute("boards", boardService.getList());
 		return "redirect:/board/list2";
 	}
-	
 	@GetMapping("/list2")
 	public String list2(Criteria criteria,Model model) {
 		log.info("list2()..");
