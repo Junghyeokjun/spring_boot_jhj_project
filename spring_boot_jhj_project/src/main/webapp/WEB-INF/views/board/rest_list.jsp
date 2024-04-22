@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/board.js"></script>
+
 
 <script type="text/javascript">
 	/* 
@@ -23,79 +25,19 @@
 	  success : `성공시 수행할 함수`
 	}); 
 	*/
+	
+	
 	$(document).ready(function(){
-		function deleteBoard(id){
-			$.ajax({
-				type:"DELETE",
-				contentType:'application/json;charset=utf-8',
-				url:"${pageContext.request.contextPath}/boards/"+id,
-				data:JSON.stringify(board),
-				success: function(result){
-					console.log(result);
-				},
-				error: function(e){
-					console.log(e);
-				}
-			});
-		}
-		function makeList(result){
-			let htmls="";
-			$("#table").html("");
-			$("<tr>",{
-				html: 	"<td>"+"번호"+"</td>"+
-						"<td>"+"작성자"+"</td>"+
-						"<td>"+"제목"+"</td>"+
-						"<td>"+"작성일"+"</td>"+
-						"<td>"+"조회수"+"</td>"+
-						"<td>"+"삭제"+"</td>"
-			}).appendTo("#table");
 
-			if(result.length<1){
-				htmls.push("등록된 게시글이 없습니다.");
-			}else{
-				$(result).each(function(){
-					htmls+='<tr>';
-					htmls+='<td>'+this.bid+'</td>';
-					htmls+='<td>'+this.bname+'</td>';		
-					htmls+='<td>';
-					for(let i=0;i<this.bindent;i++){
-						htmls+='[re]'
-					}
-					htmls+='<a href="${pageContext.request.contextPath}/board/hit?bid='+this.bid+'">'+this.btitle+"</a>";
-					htmls+='</td>';
-					htmls+='<td>'+this.bdate+'</td>';
-					htmls+='<td>'+this.bhit+'</td>';
-					htmls+='<td><button id="'+this.bid+'">삭제</button></td>';
-					htmls+='</tr>';
-				});
-			}
-
-			htmls+='<tr>';
-			htmls+='<td colspan="5"><a href="${pageContext.request.contextPath}/board/write_view">글작성</a></td>';
-			htmls+='</tr>';
-			$("#table").append(htmls);
-			$(document).on("click","button",function(){
-				deleteBoard(this.id);
-				$(this).parent().parent().remove();
-			})
-
-		}
+		boardService.del(2031);
 		
-		function boardList(){
-			$.ajax({
-				type:"GET",
-				url:"${pageContext.request.contextPath}/boards/list",
-				success: function(result){
-					makeList(result)
-
-				},
-				error: function(e){
-					console.log(e);
-				}
-			});
-			
-		}
+		boardService.list();
 		
+		//boardService.get(1724);
+		
+
+		
+
 		function writeBoard(board){
 			$.ajax({
 				type:"POST",
@@ -140,7 +82,7 @@
 			btitle:"살인"
 		}
 		// writeBoard(board);
-		modifyBoard(board);
+		// modifyBoard(board);
 		 /*
 		function deleteBoard(id){
 			$.ajax({
