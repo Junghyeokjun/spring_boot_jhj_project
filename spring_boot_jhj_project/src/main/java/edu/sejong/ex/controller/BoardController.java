@@ -25,7 +25,7 @@ public class BoardController {
 	public String list(Model model) {
 		log.info("list()..");
 		
-		model.addAttribute("boards", boardService.getList());
+//		model.addAttribute("boards", boardService.getList());
 		return "redirect:/board/list2";
 	}
 	

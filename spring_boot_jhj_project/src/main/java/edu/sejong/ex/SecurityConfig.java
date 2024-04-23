@@ -23,13 +23,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	public void configure(HttpSecurity http) throws Exception {
 		//csrf설정 해제
 		//초기 개발시만 권장
-//		http.csrf().disable();
+		http.csrf().disable();
 		/* 권한설정 */
 	    http.authorizeRequests()
-	    .antMatchers("/member/**").hasAnyRole("MEMBER") 
+	    .antMatchers("/user/**").hasAnyRole("USER") 
 	    .antMatchers("/admin/**").hasAnyRole("ADMIN")
 	    .antMatchers("/emp/list").hasAnyRole("ADMIN")
-	    .antMatchers("/**").permitAll();   
+	    .antMatchers("/board/list").hasAnyRole("ADMIN")
+	    .antMatchers("/**").permitAll();
 	    http.formLogin();
 	}	
 

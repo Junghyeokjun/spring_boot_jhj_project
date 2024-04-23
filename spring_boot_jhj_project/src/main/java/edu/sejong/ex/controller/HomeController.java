@@ -19,5 +19,17 @@ public class HomeController {
 		log.info("home()..");
 		return "home";
 	}
+
+	@GetMapping("/user/userHome")
+	public void userHome() {
+		log.info("userHome()..");
+		
+	}
+	
+	@GetMapping("/admin/adminHome")
+	public void adminHome() {
+		log.info("adminHome()..");
+		
+	}
 	
 }
