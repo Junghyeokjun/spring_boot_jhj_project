@@ -151,10 +151,12 @@
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
+					<c:if test="${param.error!=null}"><p>아이디, 또는 비밀번호가 잘못되었습니다.</p></c:if>
+					<c:if test="${param.logout!=null}"><p>로그아웃 하였습니다.</p></c:if>
 						<h2>Login to your account</h2>
-						<form action="#">
-							<input type="text" placeholder="Name" />
-							<input type="email" placeholder="Email Address" />
+						<form action="${pageContext.request.contextPath}/login" method="post">
+							<input type="text" placeholder="UserName" name="id" />
+							<input type="password" placeholder="PassWord" name="pw" />
 							<span>
 								<input type="checkbox" class="checkbox"> 
 								Keep me signed in

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import edu.sejong.ex.vo.AuthVO;
 import edu.sejong.ex.vo.UserVO;
@@ -39,15 +40,17 @@ class UserMapperTest {
 			System.out.println(auth);
 		}
 	}
-	
 	@Test
 	void testInsertUser() {
-		int i=userMapper.insertUser(new UserVO("say","111",null,null));
-		UserVO user=userMapper.getUser("say");
-		System.out.println(user);
-		System.out.println(i);
+		UserVO user=new UserVO();
+		user.setUsername("admin2");
+		user.setPassword(new BCryptPasswordEncoder().encode("admin2"));
+		user.setEnabled("1");
+		
+		userMapper.insertUser(user);
+		userMapper.insertAuthorities(user);
 	}	
-	
+	@Disabled
 	@Test
 	void testInsertAuthorities() {
 		userMapper.insertAuthorities(new UserVO("say","111",null,null));

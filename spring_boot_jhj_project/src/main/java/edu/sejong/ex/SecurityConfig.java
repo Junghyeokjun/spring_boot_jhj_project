@@ -1,17 +1,23 @@
 package edu.sejong.ex;
 
-import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import edu.sejong.ex.security.CustomUserDetailsService;
 
 @Configuration
 @EnableWebSecurity//스프링 시큐리티 필터가 스프링 필터체인에 등록됨
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
+	@Autowired
+	private CustomUserDetailsService customUserDetailsService;
+	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		
@@ -31,6 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	    .antMatchers("/emp/list").hasAnyRole("ADMIN")
 	    .antMatchers("/board/list").hasAnyRole("ADMIN")
 	    .antMatchers("/**").permitAll();
+	    
 	    http.formLogin()
 	    .loginPage("/login")//loginpage()= 로그인을 진행할 페이지의 url
 	    .usernameParameter("id")
@@ -43,14 +50,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
-		auth.inMemoryAuthentication()
-		.withUser("member").password("{noop}member").roles("USER")
-		.and()
-		.withUser("admin").password("{noop}admin").roles("ADMIN");
-
-		
+//		auth.inMemoryAuthentication()
+//		.withUser("member").password("{noop}member").roles("USER")
+//		.and()
+//		.withUser("admin").password("{noop}admin").roles("ADMIN");
+		auth.userDetailsService(customUserDetailsService)
+		.passwordEncoder(new BCryptPasswordEncoder());
 	}
-
-	
 	
 }
