@@ -26,12 +26,12 @@ public class UserController {
 		model.addAttribute("DeptSalgradeEmp", userService.getDeptSalgradeEmVOList());
 		return "/index";
 	}
-	@GetMapping("/login")
-	public String login(Model model) {
-		log.info("login()..");
-
-		return "/login";
-	}
+//	@GetMapping("/login")
+//	public String login(Model model) {
+//		log.info("login()..");
+//
+//		return "/login";
+//	}
 	@PostMapping("/signUp")
 	public String signUp(UserVO userVO) {
 		log.info("signUp()..");
