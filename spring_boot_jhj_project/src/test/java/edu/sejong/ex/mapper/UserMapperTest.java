@@ -3,6 +3,9 @@ package edu.sejong.ex.mapper;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,9 +46,12 @@ class UserMapperTest {
 	@Test
 	void testInsertUser() {
 		UserVO user=new UserVO();
-		user.setUsername("admin2");
-		user.setPassword(new BCryptPasswordEncoder().encode("admin2"));
+		user.setUsername("admin3");
+		user.setPassword(new BCryptPasswordEncoder().encode("admin3"));
 		user.setEnabled("1");
+		List<AuthVO> list=new ArrayList<>();
+		list.add(new AuthVO("admin3", "ROLE_ADMIN"));
+		user.setAuthList(list);
 		
 		userMapper.insertUser(user);
 		userMapper.insertAuthorities(user);
