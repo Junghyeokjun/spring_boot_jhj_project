@@ -30,7 +30,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		UserVO user = UserMapper.getUser(username);
 		
 		EmpVO emp = companyMapper.getEmp("KING");
-		CartVO cart=new CartVO("사이다", 1);
+		CartVO cart=new CartVO();
 		log.warn("queried by UserVO mapper:" + user);
 
 		return user == null ? null : new UserDetailsVO(user,emp,cart);

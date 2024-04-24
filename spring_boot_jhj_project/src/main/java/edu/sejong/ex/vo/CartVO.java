@@ -14,5 +14,5 @@ import lombok.ToString;
 @ToString
 public class CartVO {
 	private String product="사이다";
-	private int count;
+	private int count=1;
 }
