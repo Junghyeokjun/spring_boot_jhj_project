@@ -64,6 +64,12 @@
 			WHERE (emp.sal BETWEEN salgrade.losal and salgrade.hisal) and emp.deptno=dept.deptno
 		]]>
 	</select>
+	
+		<select id="getEmp" resultType="EmpVO">
+		<![CDATA[
+			SELECT * FROM emp WHERE ename=#{ename}
+		]]>
+	</select>
 
 
 </mapper>

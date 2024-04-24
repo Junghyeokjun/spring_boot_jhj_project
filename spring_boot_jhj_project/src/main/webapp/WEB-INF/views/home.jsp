@@ -17,6 +17,7 @@
 		</sec:authorize>
 		<sec:authorize access="isAuthenticated()">
 			<p><sec:authentication property="principal.username"/>님 환영합니다.</p>
+			<p>이메일:<sec:authentication property="principal.email"/></p>
 			<sec:authorize access="hasRole('ROLE_USER')">
 			<p>당신은 일반 유저 입니다.</p>
 			</sec:authorize>
