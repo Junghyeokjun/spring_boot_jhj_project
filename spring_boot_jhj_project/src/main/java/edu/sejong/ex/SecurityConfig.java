@@ -1,14 +1,16 @@
 package edu.sejong.ex;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
+import edu.sejong.ex.security.CustomNoOpPasswordEncoder;
 import edu.sejong.ex.security.CustomUserDetailsService;
 
 @Configuration
@@ -45,7 +47,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	    .defaultSuccessUrl("/")
 	    .permitAll();//모든유저가 로그인화면은 볼수 있다.
 	}	
-
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new CustomNoOpPasswordEncoder();
+	}
+	
 	//테스트용 유저 만들기(인메모리 방식)
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -55,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //		.and()
 //		.withUser("admin").password("{noop}admin").roles("ADMIN");
 		auth.userDetailsService(customUserDetailsService)
-		.passwordEncoder(new BCryptPasswordEncoder());
+		.passwordEncoder(passwordEncoder());
 	}
 	
 }

@@ -30,7 +30,7 @@
 	
 	<insert id="insertAuthorities">
 		<![CDATA[
-			insert into authorities(username,authority) VALUES (#{username},'ROLE_ADMIN')
+			insert into authorities(username,authority) VALUES (#{username},'ROLE_MEMBER')
 		]]>
 	</insert>		
 

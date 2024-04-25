@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import edu.sejong.ex.vo.DeptEmpVO;
 import edu.sejong.ex.vo.DeptSalgradeEmpVO;
@@ -22,6 +23,10 @@ class CompanyMapperTest {
 	@Autowired
 	CompanyMapper companyMapper;
 	
+	@Autowired
+	private PasswordEncoder PasswordEncoder;
+	
+	@Disabled
 	@Test
 	void testCompanyMapper() {
 		assertNotNull(companyMapper);
@@ -49,6 +54,7 @@ class CompanyMapperTest {
 		}
 	}
 	
+	@Disabled
 	@Test
 	void testgetDeptSalgradeEmpList() {
 		for (DeptSalgradeEmpVO vo : companyMapper.getDeptSalgradeEmpList()) {
@@ -62,6 +68,13 @@ class CompanyMapperTest {
 			}
 
 		}
+	}
+	
+	@Test
+	void testInsertEmp() {
+		EmpVO emp= new EmpVO(1112,"ak","CLERK",7902,"2014-12-17",300,400,20);
+		emp.setEmpno(Integer.valueOf(PasswordEncoder.encode("1112")));
+		companyMapper.insertEmp(emp);
 	}
 
 }

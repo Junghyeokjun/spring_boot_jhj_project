@@ -64,6 +64,17 @@
 			WHERE (emp.sal BETWEEN salgrade.losal and salgrade.hisal) and emp.deptno=dept.deptno
 		]]>
 	</select>
-
+	
+	<select id="getEmp" resultType="EmpVO">
+		<![CDATA[
+			SELECT * FROM emp WHERE ename=#{ename}
+		]]>
+	</select>
+	
+	<insert id="insertEmp">
+		<![CDATA[
+			INSERT INTO emp VALUES (#{empno},#{ename},#{job},#{mgr},#{hiredate},#{sal},#{comm},#{deptno})
+		]]>
+	</insert>
 
 </mapper>

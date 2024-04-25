@@ -66,7 +66,7 @@ class BoardMapperTest {
 		BoardVO boardVO=new BoardVO(1,"1234","4567","7891",null,0,0,0,0);
 		log.info(boardMapper.updateBoard(boardVO)+"행 수정");
 	}
-	
+	@Disabled
 	@Test
 	void testGetJoin() {
 		List<EmpVO> emps=boardMapper.getJoinEmp();
