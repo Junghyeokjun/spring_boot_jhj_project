@@ -14,33 +14,33 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Setter
-@ToString
+
 public class EmpDetailsVO implements UserDetails{
 	
-	private String username;
-	private String password;
-	private List<GrantedAuthority> authorities=new ArrayList<GrantedAuthority>();
+	private EmpVO emp=null;
 	
 	public EmpDetailsVO(EmpVO emp) {
-		this.setUsername(emp.getEname());
-		this.setPassword(emp.getEmpno()+"");
-		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+		this.setEmp(emp);
+	} 
+	public EmpVO getEmp() {
+		return this.emp;
 	}
-	
 
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-	
-		return this.authorities;
+		List<GrantedAuthority> authorities=new ArrayList<GrantedAuthority>();
+		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+		
+		return authorities;
 	}
 
 	@Override
 	public String getPassword() {
-		return this.password;
+		return String.valueOf(emp.getEmpno());
 	}
 
 	@Override
 	public String getUsername() {
-		return this.username;
+		return emp.getEname();
 	}
 
 	@Override

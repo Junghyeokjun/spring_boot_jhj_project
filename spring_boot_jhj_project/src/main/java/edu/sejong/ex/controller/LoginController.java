@@ -18,7 +18,7 @@ public class LoginController {
 	@GetMapping("/login")
 	public String login() {
 		log.info("login()..");
-		return "/login";
+		return "/login/login";
 	}
 	
 	@GetMapping("/loginInfo")

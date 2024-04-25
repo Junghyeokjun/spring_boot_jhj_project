@@ -8,10 +8,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import edu.sejong.ex.security.CustomNoOpPasswordEncoder;
 import edu.sejong.ex.security.CustomUserDetailsService;
+import edu.sejong.ex.security.EmpUserDetailsService;
 
 @Configuration
 @EnableWebSecurity//스프링 시큐리티 필터가 스프링 필터체인에 등록됨
@@ -19,6 +21,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired
 	private CustomUserDetailsService customUserDetailsService;
+	
+	@Autowired
+	private EmpUserDetailsService empUserDetailsService;
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
@@ -31,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	public void configure(HttpSecurity http) throws Exception {
 		//csrf설정 해제
 		//초기 개발시만 권장
-		http.csrf().disable();
+//		http.csrf().disable();
 		/* 권한설정 */
 	    http.authorizeRequests()
 	    .antMatchers("/user/**").hasAnyRole("USER") 
@@ -50,6 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new CustomNoOpPasswordEncoder();
+//		return new BCryptPasswordEncoder();
 	}
 	
 	//테스트용 유저 만들기(인메모리 방식)
@@ -60,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //		.withUser("member").password("{noop}member").roles("USER")
 //		.and()
 //		.withUser("admin").password("{noop}admin").roles("ADMIN");
-		auth.userDetailsService(customUserDetailsService)
+		auth.userDetailsService(empUserDetailsService)
 		.passwordEncoder(passwordEncoder());
 	}
 	
