@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.sejong.ex.mapper.BoardMapper;
 import edu.sejong.ex.page.Criteria;
@@ -23,6 +24,7 @@ public class BoardServiceImpl implements BoardService{
 		return boardMapper.getList();
 	};
 	
+	@Transactional
 	@Override
 	public BoardVO get(int bno){
 		log.info("get()..");
@@ -47,7 +49,7 @@ public class BoardServiceImpl implements BoardService{
 		log.info("modifyBoard()..");
 		return boardMapper.updateBoard(boardVO);
 	}
-
+	@Transactional
 	@Override
 	public void writeReply(BoardVO boardVO) {
 		log.info("writeReply()..");
