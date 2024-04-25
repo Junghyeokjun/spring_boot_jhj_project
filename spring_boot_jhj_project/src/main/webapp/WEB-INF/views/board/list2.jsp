@@ -12,7 +12,7 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="C:\Users\601-5\git\spring_boot_jhj_project\spring_boot_jhj_project\src\main\resources\static\js\board.js"></script>
+<script type="text/javascript" src="/js/board.js"></script>
 <script>
     $(document).ready(function(){
         $(document).on('click','button',function(){
@@ -48,7 +48,7 @@ crossorigin="anonymous"></script>
 								<td>${board.bname}</td>
 								<td>
 									<c:forEach begin="1" end="${board.bindent}">[Re]</c:forEach>
-									<a href="${pageContext.request.contextPath}/board/hit?bid=${board.bid}">${board.btitle}</a>
+									<a href="${pageContext.request.contextPath}/board/contentView?bid=${board.bid}">${board.btitle}</a>
 								</td>
 								<td>${board.bdate}</td>
 								<td>${board.bhit}</td>

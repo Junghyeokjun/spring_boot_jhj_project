@@ -1,6 +1,6 @@
 package edu.sejong.ex.controller;
 
-import javax.websocket.server.PathParam;
+import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,10 +21,28 @@ public class TransectionController {
 	TransectionTestService transectionTestService;
 	
 	@GetMapping("/{num}")
-	public void Transaction(@PathVariable("num") int num,Model model) {
+	public void Transaction(@PathVariable("num") int num,Model model) throws SQLException {
 		log.info("Transaction()..============="+num);
 		if(num==1) {
 			transectionTestService.transectionTest1();
+		}
+		if(num==2) {
+			transectionTestService.transectionTest2();
+		}
+		if(num==3) {
+			transectionTestService.transectionTest3();
+		}
+		if(num==4) {
+			transectionTestService.transectionTest4();
+		}
+		if(num==5) {
+			transectionTestService.transectionTest5();
+		}
+		if(num==6) {
+			transectionTestService.transectionTest6();
+		}
+		if(num==7) {
+			transectionTestService.transectionTest7();
 		}
 	}
 	
