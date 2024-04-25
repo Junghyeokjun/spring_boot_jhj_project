@@ -11,6 +11,15 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="C:\Users\601-5\git\spring_boot_jhj_project\spring_boot_jhj_project\src\main\resources\static\js\board.js"></script>
+<script>
+    $(document).ready(function(){
+        $(document).on('click','button',function(){
+            board.deleteBoard(this.id)
+        })
+    })
+</script>
 </head>
 <body>
 <div class="d-flex flex-column justify-content-between vh-100 ">
@@ -43,7 +52,7 @@ crossorigin="anonymous"></script>
 								</td>
 								<td>${board.bdate}</td>
 								<td>${board.bhit}</td>
-								<td><a href="${pageContext.request.contextPath}/board/delete?bid=${board.bid}"><button class="btn btn-success">삭제</button></a></td>
+								<td><button class="btn btn-success" id="${board.bid}">삭제</button></td>
 							</tr>
 						</c:forEach>
 

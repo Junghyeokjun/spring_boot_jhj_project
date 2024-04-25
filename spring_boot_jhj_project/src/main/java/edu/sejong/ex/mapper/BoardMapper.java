@@ -14,7 +14,7 @@ public interface BoardMapper {
 	int delete(int bid);
 	int insertBoard(BoardVO boardVO);
 	int updateBoard(BoardVO boardVO);
-	void upHit(BoardVO boardVO);
+	void upHit(int bid);
 	
 	//댓글 관련
 	void updateShape(BoardVO boardVO);

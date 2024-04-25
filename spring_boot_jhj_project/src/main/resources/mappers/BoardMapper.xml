@@ -24,7 +24,7 @@
 	
 	<insert id="insertBoard">
 		<![CDATA[
-			INSERT INTO mvc_board2 VALUES (MVC_BOARD_SEQ.nextval, #{bname},#{btitle},#{bcontent},sysdate,0,mvc_board_seq.currval,0,0)
+			INSERT INTO mvc_board2 VALUES (MVC_BOARD2_SEQ.nextval, #{bname},#{btitle},#{bcontent},sysdate,0,mvc_board2_seq.currval,0,0)
 		]]>
 	</insert>
 	

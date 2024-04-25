@@ -26,6 +26,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public BoardVO get(int bno){
 		log.info("get()..");
+		boardMapper.upHit(bno);
 		return boardMapper.read(bno);
 	}
 
@@ -54,11 +55,6 @@ public class BoardServiceImpl implements BoardService{
 		boardMapper.insertReply(boardVO);
 	};
 	
-	@Override
-	public void addHit(BoardVO boardVO) {
-		log.info("addHit()..");
-		boardMapper.upHit(boardVO);
-	}
 
 	@Override
 	public int getTotal() {
