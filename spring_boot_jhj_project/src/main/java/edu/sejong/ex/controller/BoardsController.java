@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.sejong.ex.page.Criteria;
-import edu.sejong.ex.page.PageVO;
 import edu.sejong.ex.service.BoardService;
 import edu.sejong.ex.vo.BoardVO;
 import lombok.extern.slf4j.Slf4j;
